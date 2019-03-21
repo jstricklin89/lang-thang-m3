@@ -1,28 +1,11 @@
-// Imports the Google Cloud client library
-const {Translate} = require('@google-cloud/translate');
+//nodemon required setup
+var express = require('express'),
+  app = express(),
+  port = process.env.PORT || 3000;
+app.listen(port);
+console.log('todo list RESTful API server started on: ' + port);
+//initializing routes for our app
+routes = require('./routes/translateRoutes')
+routes(app)
 
-// Your Google Cloud Platform project ID
-const projectId = 'translator-nodej-1553180186661';
-
-// Instantiates a client
-const translate = new Translate({
-  projectId: projectId,
-});
-
-// The text to translate
-const text = 'Hello, Jonathan!';
-// The target language
-const target = 'ru';
-
-// Translates some text into Russian
-translate
-  .translate(text, target)
-  .then(results => {
-    const translation = results[0];
-
-    console.log(`Text: ${text}`);
-    console.log(`Translation: ${translation}`);
-  })
-  .catch(err => {
-    console.error('ERROR:', err);
-  });
+  // export GOOGLE_APPLICATION_CREDENTIALS="C:\Users\alumniJohnson04\node-workspace\google-translate-test\translator-nodejs-e71755a5e63b.json"
