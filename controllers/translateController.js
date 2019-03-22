@@ -15,12 +15,12 @@ const translate = new Translate({
 
 exports.process_translation = function(req, res) {
 
-console.log("hit controller method")
-const data = req;
+console.log(req.body)
+const data = req.body;
 // The text to translate
-const text = 'Hello, Jonathan!';
+const text = data.originalString;
 // The target language
-const target = 'ru';
+const target = data.targetLanguage;
 // Translates some text into Russian
 translate
   .translate(text, target)
@@ -29,7 +29,7 @@ translate
 
     console.log(`Text: ${text}`);
     console.log(`Translation: ${translation}`);
-    res.send(translation)
+    res.send({ translation: translation, text: text })
   })
   .catch(err => {
     console.error('ERROR:', err);
