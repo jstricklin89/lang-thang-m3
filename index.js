@@ -20,3 +20,9 @@ app.use(express.json());
 routes = require('./routes/translateRoutes')
 routes(app)
 
+const path = require('path');
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
