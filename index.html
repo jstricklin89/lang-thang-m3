@@ -58,7 +58,7 @@ a{
            targetLanguage = document.getElementById("languageSelect").value;
            console.log(JSON.stringify({originalString:originalString, targetLanguage:targetLanguage}))
           //  addLinesToPage([originalString, targetLanguage]);
-           fetch('http://4e384f4e.ngrok.io/translations', {
+           fetch('http://localhost:3000/translations', {
                 method: 'POST',
                 headers:{
                   'Content-Type': 'application/json'

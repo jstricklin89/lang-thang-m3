@@ -77,7 +77,7 @@ a{
 		}
 		
 		function deleteEntry(entryID) {
-		    fetch('http://4e384f4e.ngrok.io/translations/'+entryID, {
+		    fetch('http://localhost:3000/translations/'+entryID, {
                 method: 'DELETE',
                 headers:{
                   'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ a{
 			}
 	    }
 		
-        fetch('http://4e384f4e.ngrok.io/translations', {
+        fetch('http://localhost:3000/translations', {
                 method: 'GET',
                 headers:{
                   'Content-Type': 'application/json'
