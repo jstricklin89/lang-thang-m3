@@ -13,7 +13,7 @@
         padding-left: 10%;
         padding-right: 10%;
         background-color: #666666;
-        color:#ffffff; 
+        color:#ffffff !important;
         font-family: 'Source Code Pro', monospace;
 
     }
@@ -25,6 +25,7 @@
     {
       background-color: #494949
     }
+  
     
     </style>
     <title>Lang Thang</title>
@@ -46,18 +47,20 @@
            originalString = document.getElementById("textBox").value;
            targetLanguage = document.getElementById("languageSelect").value;
            console.log(JSON.stringify({originalString:originalString, targetLanguage:targetLanguage}))
-           addLinesToPage([originalString, targetLanguage]);
-           fetch('http://localhost:3000/translate', {
+          //  addLinesToPage([originalString, targetLanguage]);
+           fetch('http://4e384f4e.ngrok.io/translations', {
                 method: 'POST',
                 headers:{
                   'Content-Type': 'application/json'
                 },
                 body:JSON.stringify({originalString:originalString, targetLanguage:targetLanguage})
-            }).then(res => res.json())
-            .then(response => console.log("server response:", response))
+            })
+            .then(res => res.json())
+            .then(response => addLinesToPage([response.text, response.translation]))
          }
 
       </script>
+     
         <br>
         <form action="translate" method="post" id="theForm">
                 <H1>Lang Thang</H1>
@@ -86,7 +89,9 @@
                             </select>
                             <br>
 
-                            <input type="submit" class="btn btn-success" id="submitButton" value="Go!" />
+                            <input type="submit" class="btn btn-success" id="submitButton" value="Go!" />&nbsp<a href="delete.html"><button type="button" class="btn btn-danger">Delete</button>
+                            </a>
+
                         </div>
                         </div>
                   </div>
