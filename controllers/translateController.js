@@ -47,6 +47,7 @@ exports.view_translations = function(req, res) {
 }
 
 exports.delete_translation = function(req, res) {
+    console.log(req.params)
     Translations.findByIdAndRemove(req.params.id)
     .then(translation => {
         if(!translation) {
@@ -68,14 +69,12 @@ exports.delete_translation = function(req, res) {
 }
 
 exports.test_translation = function(req, res) {
-
     // Create a Translation
     const translation = new Translations({
         text: "testing some random translation", 
         targetLang: "de",
         translation: "testing some random translation"
     });
-
     // Save translation in the database
     translation.save()
     .then(data => {
@@ -85,35 +84,4 @@ exports.test_translation = function(req, res) {
             message: err.message || "Some error occurred while creating the translation."
         });
     });
-    
 }
-
-// function googleTranslate(text, target) {
-//     let translation
-//     translate
-//     .translate(text, target)
-//     .then(results => {
-//         translation = results[0];
-//       console.log(`Text: ${text}`);
-//       console.log(`Translation: ${translation}`);
-  
-//       new Translations({ text: text,
-//           targetLang: target,
-//           translation: translation 
-//       }).save();
-//       res.send({ translation: translation, text: text })
-//   })
-//   .catch(err => {
-//       console.error('ERROR:', err);
-//   });
- 
-// }
-
-// let translateObj = [];
-
-    // for (let i = 1; i < 6; i++) {
-        // let result = googleTranslate(text, target)
-    //     console.log(result)
-    //     translateObj.push(result)
-    // }
-    // res.send(JSON.stringify(translateObj))

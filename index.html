@@ -9,22 +9,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Source+Code+Pro" rel="stylesheet">    <style>
     body
-    {
-        padding-left: 10%;
-        padding-right: 10%;
-        background-color: #666666;
-        color:#ffffff !important;
-        font-family: 'Source Code Pro', monospace;
+{
+padding-left: 10%;
+padding-right: 10%;
+background-color: #666666;
+color:#ffffff !important;
+font-family: 'Source Code Pro', monospace;
 
-    }
-    H1
-    {
-      font-family: 'Pacifico', cursive;
-    } 
-    .card
-    {
-      background-color: #494949
-    }
+}
+H1
+{
+font-family: 'Pacifico', cursive;
+} 
+.card
+{
+background-color: #494949
+}
+h1{
+    color:white;
+}
+a:hover{
+    color:black;
+}
+a{
+    color:#ffffff;
+}
+
   
     
     </style>
@@ -63,7 +73,7 @@
      
         <br>
         <form action="translate" method="post" id="theForm">
-                <H1>Lang Thang</H1>
+                <a href="index.html"><H1>Lang Thang</H1></a><a href="delete.html">view History</a>
                 <br>
                 <div class="card">
                     <div class="card-body">
@@ -89,7 +99,7 @@
                             </select>
                             <br>
 
-                            <input type="submit" class="btn btn-success" id="submitButton" value="Go!" />&nbsp<a href="delete.html"><button type="button" class="btn btn-danger">Delete</button>
+                            <input type="submit" class="btn btn-success" id="submitButton" value="Go!" />
                             </a>
 
                         </div>

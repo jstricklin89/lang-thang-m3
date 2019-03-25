@@ -1,5 +1,4 @@
 var request = require('request')
-var deleteId
 
 describe('get homepage',()=>{
     it('should return 200 ok', (done) => {
